@@ -2,13 +2,15 @@
 frontend/node_modules/
 frontend/.next/
 frontend/.env.local
+frontend/nvenv/
 
 # Python
 backend/__pycache__/
 backend/.env
 backend/token.json
 backend/credentials.json
-
+backend/prev_files/
+backend/bvenv/
 # === Editor configs ===
 *.log
 *.pyc
@@ -18,7 +20,4 @@ backend/credentials.json
 # === Build / Cache ===
 __pycache__/
 node_modules/
-frontend/nvenv/
-backend/bvenv/
-
-
+*.py[cod]
