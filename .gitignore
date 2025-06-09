@@ -9,6 +9,16 @@ backend/.env
 backend/token.json
 backend/credentials.json
 
-# General
+# === Editor configs ===
 *.log
-.env
+*.pyc
+.DS_Store
+
+
+# === Build / Cache ===
+__pycache__/
+node_modules/
+frontend/nvenv/
+backend/bvenv/
+
+
