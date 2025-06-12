@@ -210,9 +210,9 @@ class LearningPlannerService:
             ai_response_text = response.text.strip()
 
             # ---  DEBUG PRINTS ---
-            print("\n--- DEBUG: Raw AI Response from Gemini ---")
-            print(ai_response_text)
-            print("--- END DEBUG: Raw AI Response ---\n")
+            # print("\n--- DEBUG: Raw AI Response from Gemini ---")
+            # print(ai_response_text)
+            # print("--- END DEBUG: Raw AI Response ---\n")
             # --- END DEBUG PRINTS ---
             
             # Check for safety feedback if content was blocked
@@ -237,14 +237,14 @@ class LearningPlannerService:
                         # 1. Get the content between the main delimiters (---JSON_PLAN_START--- and ---JSON_PLAN_END---)
             parts = ai_response_text.split(json_start_tag, 1)
             if len(parts) < 2: 
-                print("DEBUG: Start delimiter not found correctly.")
+                # print("DEBUG: Start delimiter not found correctly.")
                 return None, "AI did not provide a structured plan in the expected format (start delimiter missing)."
             
             content_after_start = parts[1]
             
             sub_parts = content_after_start.split(json_end_tag, 1)
             if len(sub_parts) < 2: 
-                print("DEBUG: End delimiter not found correctly.")
+                # print("DEBUG: End delimiter not found correctly.")
                 return None, "AI did not provide a structured plan in the expected format (end delimiter missing)."
             
             # This is the raw block including ```json and the closing ```
@@ -267,9 +267,9 @@ class LearningPlannerService:
             json_block = ' '.join(json_content_only.split()).strip() 
             
             # --- DEBUG PRINT FOR THE CLEANED JSON ---
-            print("\n--- DEBUG: Cleaned JSON Block before json.loads ---")
-            print(repr(json_block)) # Use repr() to see hidden characters
-            print("--- END DEBUG: Cleaned JSON Block ---\n")
+            # print("\n--- DEBUG: Cleaned JSON Block before json.loads ---")
+            # print(repr(json_block)) # Use repr() to see hidden characters
+            # print("--- END DEBUG: Cleaned JSON Block ---\n")
             # --- END DEBUG PRINT ---
             
             try:
@@ -329,7 +329,7 @@ class LearningPlannerService:
                 print(f"Error processing AI structured data: {e}")
                 return None, f"An unexpected error occurred while parsing the AI's plan: {e}"
         else:
-            print("DEBUG: Delimiters not found in AI response. Returning error message.") # Added debug here
+            # print("DEBUG: Delimiters not found in AI response. Returning error message.") # Added debug here
             return None, "AI did not provide a structured plan in the expected format (missing `---JSON_PLAN_START---` and `---JSON_PLAN_END---` delimiters)."
 
         if not structured_api_tasks:
