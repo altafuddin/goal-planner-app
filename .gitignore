@@ -11,6 +11,7 @@ backend/token.json
 backend/credentials.json
 backend/prev_files/
 backend/bvenv/
+backend/tvenv/
 # === Editor configs ===
 *.log
 *.pyc
@@ -21,5 +22,4 @@ backend/bvenv/
 __pycache__/
 node_modules/
 *.py[cod]
-
-prototype_demp.mkv
+*.mkv
